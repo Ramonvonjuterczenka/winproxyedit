@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.proxy.ProxyManagerController"
+      spacing="10" style="-fx-padding: 10;">
+
+    <GridPane hgap="10" vgap="5">
+        <columnConstraints>
+            <ColumnConstraints minWidth="150"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="Windows System Proxy" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+        <Label text="System Proxy:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="systemProxyTextField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label text="Ausnahmeliste:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextArea fx:id="systemProxyExceptionsTextArea" GridPane.columnIndex="1" GridPane.rowIndex="2" prefHeight="50"/>
+        <Label text="Automatisches Skript-URL:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id="systemProxyAutoScriptUrlTextField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <Label text="WinHTTP Proxy" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-font-weight: bold; -fx-padding-top: 20;"/>
+        <Label text="WinHTTP Proxy:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <TextField fx:id="winHttpProxyTextField" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+        <Label text="Git Proxy" GridPane.columnIndex="0" GridPane.rowIndex="6" style="-fx-font-weight: bold; -fx-padding-top: 20;"/>
+        <Label text="Global http.proxy:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <TextField fx:id="gitGlobalHttpProxyTextField" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Global https.proxy:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <TextField fx:id="gitGlobalHttpsProxyTextField" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label text="Lokales http.proxy:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <TextField fx:id="gitLocalHttpProxyTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" promptText="Nur im Repo-Kontext verfügbar"/>
+        <Label text="Lokales https.proxy:" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <TextField fx:id="gitLocalHttpsProxyTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" promptText="Nur im Repo-Kontext verfügbar"/>
+
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+        </rowConstraints>
+    </GridPane>
+
+    <Button text="Aktualisieren" onAction="#loadProxySettings" style="-fx-margin-top: 20;"/>
+    <Button text="Speichern" onAction="#saveProxySettings"/>
+    <Label fx:id="statusLabel" style="-fx-padding-top: 10;"/>
+
+</VBox>
